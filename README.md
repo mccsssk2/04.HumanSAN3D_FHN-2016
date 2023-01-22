@@ -5,7 +5,7 @@ Human 3D sinoatrial node using simple Fenton Karma cell models. 2016.
 # Background.  
 
 The sinoatrial node (SAN) is the primary natural pacemaker of the heart. This is the code repo for one of the first 3D SAN models.
-The article related to this code is:
+The article related to this code is:  
 Kharche et al. https://journals.plos.org/plosone/article/comments?id=10.1371/journal.pone.0183727
 
 # Dependencies.  
