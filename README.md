@@ -48,7 +48,7 @@ This code has now been integrated into the VCPL package.
 
 # Acknowledements.
 
-This project was supported by the Dobrzynski laboratory in Manchester Medical School, UoM, UK. 
+This project was supported by the Dobrzynski laboratory in Manchester Medical School, University of Manchester, UK. 
 
 # Licence.
 
