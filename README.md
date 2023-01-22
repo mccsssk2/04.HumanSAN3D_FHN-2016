@@ -15,9 +15,12 @@ The ordinary differential equations are solved using Sundials library.
 The partial differential equation (diffusion) is solved using PetSc's TS solver.
 The visualization is performed using VTK/ParaView.
 
-PetSc can be found at: https://petsc.org/release/  
-Sundials can be found at: https://computing.llnl.gov/projects/sundials  
-ParaView can be found at: https://www.kitware.com/
+* PetSc can be found at: https://petsc.org/release/  
+* Sundials can be found at: https://computing.llnl.gov/projects/sundials  
+* ParaView can be found at: https://www.kitware.com/
+* MPICH.
+* GNU C.
+* Python (for non-interactive viz).
 
 # Install.  
 
