@@ -39,7 +39,8 @@ The output is written as binary files to help with parallel i/o.
 
 The programs require a geometry, location specific cell model RHS functions. The simulation is then performed using standard
 MPI commands, and PBS or slurm scripting for large computers. The outputs in binary file format is converted to VTK or information
-extracted during post-processing. The code is extensible to any geometry and any cell model type.
+extracted during post-processing. Python scripts that show how viz can be done as a parallel job on a cluster are provided. 
+The code is extensible to any geometry and any cell model type.
 
 # Maintainer.  
 
