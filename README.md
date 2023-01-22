@@ -1,6 +1,6 @@
 # Repository.  
 
-Human 3D sinoatrial node using FHN. 2016.
+Human 3D sinoatrial node using simple Fenton Karma cell models. 2016.
 
 # Background.  
 
