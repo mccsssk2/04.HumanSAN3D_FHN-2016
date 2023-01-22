@@ -1,0 +1,32 @@
+#!/bin/tcsh
+#PBS -l nodes=1
+#PBS -o viz2spiral2.out
+#PBS -e viz2spiral2.err
+# Set the name of the job here
+#PBS -N spirals2D
+# The queue, by default is mediummem which right now has max number of nodes free.
+#PBS -q all
+#PBS -l walltime=6:00:00
+# This directive starts jobs with the specified index numbers. PBS_ARRAYID is never 0.
+#PBS -t 1-24%4
+
+module load paraview
+setenv WORKDIR /data/srk209/HalinaDebrozynski/skHumanSAN/sk2D_2/dir_${PBS_ARRAYID}
+cp /data/srk209/HalinaDebrozynski/skHumanSAN/sk2D_2/*.py $WORKDIR
+cp /data/srk209/HalinaDebrozynski/skHumanSAN/sk2D_2/*.sh $WORKDIR
+cd $WORKDIR
+
+# Start VNC server and record the output so we know what to set DISPLAY to
+vncserver >& vncsever.out
+
+# Set the DISPLAY environment variable. 
+setenv DISPLAY `grep "desktop is" vncsever.out | awk '{print $5}'`
+echo "DISPLAY= $DISPLAY"
+
+unlimit stacksize
+
+# now any X11 traffic is sent to the VNC server.
+./runhSAN2D.sh &
+
+wait
+
