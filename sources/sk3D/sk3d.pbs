@@ -1,0 +1,43 @@
+#!/bin/tcsh
+#PBS -l nodes=4:ppn=12
+#PBS -o hSAN.out
+#PBS -e hSAN.err
+# Set the name of the job here
+#PBS -N hSAN
+# The queue, by default is mediummem which right now has max number of nodes free.
+#PBS -q mpiexpress
+#PBS -l walltime=48:00:00
+# This directive starts jobs with the specified index numbers. PBS_ARRAYID is never 0.
+#PBS -t 4
+
+# Note that we have to specify the number of nodes again here...
+setenv NUMBEROFNODES 4
+setenv NUMPROCS 48
+
+module load ics2013
+module load mkl
+module load petsc
+setenv WORKDIR /data/srk209/HalinaDebrozynski/skHumanSAN/sk3D/dir_${PBS_ARRAYID}
+setenv MYBIN sk3d
+mkdir -p ${WORKDIR}
+cp /data/srk209/HalinaDebrozynski/skHumanSAN/sk3D/$MYBIN ${WORKDIR}
+cp /data/srk209/HalinaDebrozynski/skHumanSAN/sk3D/*.geom ${WORKDIR}
+cd ${WORKDIR}
+
+unlimit stacksize
+
+### ### ### ### ### ### ### ### ### ### ### ### ### ### ### 
+###
+### Users: for basic setting do not modify anything below 
+### except the input.
+###
+### ### ### ### ### ### ### ### ### ### ### ### ### ### ### 
+
+cd $WORKDIR || exec echo "Cannot cd to $WORKDIR"
+echo "dump node list to example.out"
+cat "$PBS_NODEFILE"
+
+mpdboot -n $NUMBEROFNODES -r ssh -f "$PBS_NODEFILE"
+time mpiexec -genv I_MPI_DEVICE rdssm:OpenIB-cma -np $NUMPROCS $WORKDIR/$MYBIN ${PBS_ARRAYID}
+mpdallexit
+

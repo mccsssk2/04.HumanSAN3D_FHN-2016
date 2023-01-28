@@ -1,0 +1,22 @@
+#!/bin/tcsh
+#PBS -l nodes=1
+
+#PBS -q mpiexpress
+#PBS -l walltime=72:00:00
+
+cd /data/srk209/HalinaDebrozynski/skHumanSAN/TwoCells/uncoupled
+
+./hsan 1 &
+./hsan 2 &
+./hsan 3 &
+./hsan 4 &
+./hsan 5 &
+./hsan 6 &
+./hsan 7 &
+./hsan 8 &
+./hsan 9 &
+./hsan 10 &
+./hsan 11 &
+./hsan 12 &
+
+wait
