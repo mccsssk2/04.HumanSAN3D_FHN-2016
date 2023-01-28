@@ -20,7 +20,7 @@ The visualization is performed using VTK/ParaView.
 * ParaView can be found at: https://www.kitware.com/
 * MPICH.
 * GNU C.
-* Python (for non-interactive viz).
+* Python (for non-interactive viz, data postprocessing).
 
 # Install.  
 
