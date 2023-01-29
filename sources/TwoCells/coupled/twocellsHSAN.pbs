@@ -1,6 +1,8 @@
 #!/bin/tcsh
 #PBS -l nodes=1
 
+# A simple working hack, since hsan is a loop that runs over a day/overnight or so.
+
 #PBS -q mpiexpress
 #PBS -l walltime=72:00:00
 
